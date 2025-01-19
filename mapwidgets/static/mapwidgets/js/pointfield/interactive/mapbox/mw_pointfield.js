@@ -135,21 +135,21 @@
                     const placeName = address?.place_name || "Unknown Place"
                     this.addressAutoCompleteInput.val(placeName);
                     $(document).trigger(this.placeChangedTriggerNameSpace,
-                        [address, lat, lng, this.wrapElemSelector, this.locationInput]
+                        [address, lat, lng, this.wrapElemSelector, this.djangoInput]
                     )
                     if ($.isEmptyObject(this.locationFieldValue)) {
                         $(document).trigger(this.markerCreateTriggerNameSpace,
-                            [address, lat, lng, this.wrapElemSelector, this.locationInput]
+                            [address, lat, lng, this.wrapElemSelector, this.djangoInput]
                         );
                     } else {
                         $(document).trigger(this.markerChangeTriggerNameSpace,
-                            [address, lat, lng, this.wrapElemSelector, this.locationInput]
+                            [address, lat, lng, this.wrapElemSelector, this.djangoInput]
                         );
                     }
                 })
             } else {  // user entered an address
                 $(document).trigger(this.placeChangedTriggerNameSpace,
-                    [place, lat, lng, this.wrapElemSelector, this.locationInput]
+                    [place, lat, lng, this.wrapElemSelector, this.djangoInput]
                 );
             }
         },
