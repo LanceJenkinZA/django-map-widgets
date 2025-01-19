@@ -142,36 +142,36 @@ Javascript Triggers
 
 UI customization or event handling on the front-end can be managed using map widget jQuery triggers. Examples of usage can be found in the `demo project <https://github.com/erdem/django-map-widgets/tree/main/demo>`_.
 
-* **mapboxPointFieldWidget:markerCreate**: Triggered when a marker is created on the map. (callback params: place, lat, lng, locationInputElem, mapWrapID)
+* **mapboxPointFieldWidget:markerCreate**: Triggered when a marker is created on the map. (callback params: place, lat, lng, mapWrapID, locationInputElem)
 
-* **mapboxPointFieldWidget:markerChange**: Triggered when a marker's position is changed on the map. (callback params: place, lat, lng, locationInputElem, mapWrapID)
+* **mapboxPointFieldWidget:markerChange**: Triggered when a marker's position is changed on the map. (callback params: place, lat, lng, mapWrapID, locationInputElem)
 
-* **mapboxPointFieldWidget:markerDelete**: Triggered when a marker is deleted from the map. (callback params: lat, lng, locationInputElem, mapWrapID)
+* **mapboxPointFieldWidget:markerDelete**: Triggered when a marker is deleted from the map. (callback params: lat, lng, mapWrapID, locationInputElem)
 
-* **mapboxPointFieldWidget:placeChanged**: Triggered when the place in the autocomplete input is changed. (callback params: place, lat, lng, locationInputElem, mapWrapID)
+* **mapboxPointFieldWidget:placeChanged**: Triggered when the place in the autocomplete input is changed. (callback params: place, lat, lng, mapWrapID, locationInputElem)
 
 .. code-block:: javascript
 
     (function ($) {
-        $(document).on("mapboxPointFieldWidget:markerCreate", function (e, lat, lng, locationInputElem, mapWrapID) {
+        $(document).on("mapboxPointFieldWidget:markerCreate", function (e, lat, lng, mapWrapID, locationInputElem) {
             console.log(locationInputElem); // Django widget textarea widget (hidden)
             console.log(lat, lng); // Created marker coordinates
             console.log(mapWrapID); // Map widget wrapper element ID
         });
 
-        $(document).on("mapboxPointFieldWidget:markerChange", function (e, lat, lng, locationInputElem, mapWrapID) {
+        $(document).on("mapboxPointFieldWidget:markerChange", function (e, lat, lng, mapWrapID, locationInputElem) {
             console.log(locationInputElem); // Django widget textarea widget (hidden)
             console.log(lat, lng);  // Changed marker coordinates
             console.log(mapWrapID); // Map widget wrapper element ID
         });
 
-        $(document).on("mapboxPointFieldWidget:markerDelete", function (e, lat, lng, locationInputElem, mapWrapID) {
+        $(document).on("mapboxPointFieldWidget:markerDelete", function (e, lat, lng, mapWrapID, locationInputElem) {
             console.log(locationInputElem); // Django widget textarea widget (hidden)
             console.log(lat, lng);  // Deleted marker coordinates
             console.log(mapWrapID); // Map widget wrapper element ID
         });
 
-        $(document).on("mapboxPointFieldWidget:placeChanged", function (e, place, lat, lng, locationInputElem, mapWrapID) {
+        $(document).on("mapboxPointFieldWidget:placeChanged", function (e, place, lat, lng, mapWrapID, locationInputElem) {
             console.log(place); // Mapbox geocoder place object
             console.log(locationInputElem); // Django widget textarea widget (hidden)
             console.log(lat, lng); // Created marker coordinates
